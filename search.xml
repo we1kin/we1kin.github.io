@@ -163,4 +163,22 @@
         <tag>demo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>test2</title>
+    <url>/2024/01/19/test2/</url>
+    <content><![CDATA[<p>44444444</p>
+<details class="blue" data-header-exclude><summary><i class="fa-solid fa-chevron-right"></i>Folding 测试： 点击查看更多 </summary>
+              <div class='content'>
+              <p>啊啊啊啊啊</p>  <div class="note p-4 mb-4 rounded-small danger">    <p>danger 提示块标签</p>  </div>  <div class="note p-4 mb-4 rounded-small tip">    <p>tip 提示块标签</p>  </div>
+              </div>
+            </details>
+
+<h1 id="6666666"><a href="#6666666" class="headerlink" title="6666666"></a>6666666</h1><h2 id="55555554444"><a href="#55555554444" class="headerlink" title="55555554444"></a>55555554444</h2><h3 id="444444"><a href="#444444" class="headerlink" title="444444"></a>444444</h3><h4 id="3333333"><a href="#3333333" class="headerlink" title="3333333"></a>3333333</h4><h5 id="222222"><a href="#222222" class="headerlink" title="222222"></a>222222</h5><h6 id="111111"><a href="#111111" class="headerlink" title="111111"></a>111111</h6>]]></content>
+      <categories>
+        <category>aaaa</category>
+      </categories>
+      <tags>
+        <tag>demomomomomomomomomo</tag>
+      </tags>
+  </entry>
 </search>
