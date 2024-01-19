@@ -47,28 +47,4 @@
         <tag>demomomomomomomomomo</tag>
       </tags>
   </entry>
-  <entry>
-    <title>test again</title>
-    <url>/2024/01/19/again/</url>
-    <content><![CDATA[<p>DS&#x3D;075A ，即075A0是程序开始的地方，隔过100H程序段前缀（PSP），从076A……….</p>
-<p>DS 数据段</p>
-<p>CS 代码段</p>
-<p>SS 栈段</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/19/H4YNs32FvfZqxVd.png"
-                      alt="image-20230924203325785"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/19/OSlUsyJ6GCV8ofY.jpg"
-                      alt="R-C"
-                ></p>
-]]></content>
-      <categories>
-        <category>啊啊啊</category>
-      </categories>
-  </entry>
 </search>
