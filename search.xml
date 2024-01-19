@@ -3,154 +3,20 @@
   <entry>
     <title>Hello World</title>
     <url>/2024/01/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/2024/01/17/test/</url>
-    <content><![CDATA[<h2 id="CTF-逆向-SMC解题记录"><a href="#CTF-逆向-SMC解题记录" class="headerlink" title="CTF-逆向 SMC解题记录"></a>CTF-逆向 SMC解题记录</h2><p>刚学逆向的菜鸟，第一次解出SMC逆向的题目（可能之前遇过，但要么没解出，要么超flag了）刚开始做也是稀里糊涂</p>
-<p>题目为NewStarCTFweek2的<a class="link"   href="https://buuoj.cn/match/matches/190/challenges#SMC" >SMC <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>扔exeinfo看下，无壳32位</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010070743712.png"
-                      alt="image-20231010070743712"
-                ></p>
-<p>32位IDA打开，代码如下</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010071038306.png"
-                      alt="image-20231010071038306"
-                ></p>
-<p>这里在if ( (byte_403040)(&amp;unk_4033D4, &amp;unk_403020) )中，显然byte_403040应该是一个函数，但我们双击进入后发现只有一些数据，而sub_401042是一段进行异或的代码，这就是SMC加密实现的</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010084107397.png"
-                      alt="image-20231010084107397"
-                ></p>
-<p>chatgpt给的注释</p>
-<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> __cdecl <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> **argv, <span class="type">const</span> <span class="type">char</span> **envp)</span></span><br><span class="line">&#123;</span><br><span class="line">  DWORD *v3; <span class="comment">// eax</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 分配一个长度为 0x26（38）字节的内存块</span></span><br><span class="line">  v3 = <span class="built_in">malloc</span>(<span class="number">0x26</span>u);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将内存页保护改为可读可写可执行</span></span><br><span class="line">  VirtualProtect(&amp;byte_403040, <span class="number">0x26</span>u, <span class="number">0x40</span>u, v3);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 输出提示信息</span></span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Please enter your flag:&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从用户输入中读取字符串到指定地址</span></span><br><span class="line">  sub_401025(<span class="string">&quot;%s&quot;</span>, &amp;unk_4033D4);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 检查是否处于调试模式</span></span><br><span class="line">  <span class="keyword">if</span> ( NtCurrentPeb()-&gt;BeingDebugged )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// 如果是调试模式，则弹出警告窗口</span></span><br><span class="line">    MessageBoxA(<span class="number">0</span>, <span class="string">&quot;Debug Detected!&quot;</span>, <span class="string">&quot;Warning!&quot;</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 程序休眠5秒</span></span><br><span class="line">    Sleep(<span class="number">0x1388</span>u);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 退出程序</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 执行一些特定操作</span></span><br><span class="line">  sub_401042();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用函数进行比较判断</span></span><br><span class="line">  <span class="keyword">if</span> ( (byte_403040)(&amp;unk_4033D4, &amp;unk_403020) )</span><br><span class="line">    <span class="comment">// 比较结果为真，输出 &quot;Win!&quot;</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Win!&quot;</span>);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="comment">// 比较结果为假，输出 &quot;Lose!&quot;</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Lose!&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用系统命令暂停程序执行，等待用户按任意键继续</span></span><br><span class="line">  <span class="keyword">return</span> system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p> VirtualProtect(&amp;byte_403040, 0x26u, 0x40u, v3);与SMC的加解密有关，详情可见[<a class="link"   href="https://bbs.kanxue.com/thread-201708.htm" >原创]VC实现SMC加密技术-看雪 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>根据代码的分析可以知道，这段代码我们肯定是要跳过的，因为接下来我们需要动态调试来逆向</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010075322573.png"
-                      alt="image-20231010075322573"
-                ></p>
-<p>在IDA-view界面追踪这段代码</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010075654289.png"
-                      alt="image-20231010075654289"
-                ></p>
-<p>简单分析得知当我们在调试模式时，不会通过jz跳转，故而用patch将其修改为jnz就能在动态调试时，跳过这段代码，不进入休眠以及程序的退出，当然用nop指令也可行，不过容易出现其他错误</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010080236617.png"
-                      alt="image-20231010080236617"
-                ></p>
-<p>修改后将其应用到程序当中</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010080402596.png"
-                      alt="image-20231010080402596"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010080443498.png"
-                      alt="image-20231010080443498"
-                ></p>
-<p>*在这一步中使用Apply patches to input file时，可能出现patching cancelled在output窗口中的情况</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010082740623.png"
-                      alt="image-20231010082740623"
-                ></p>
-<p>将插件文件夹中的keystone删除即可正常使用（困扰我好久┭┮﹏┭┮）</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010082921060.png"
-                      alt="image-20231010082921060"
-                ></p>
-<p>将这些做完后，就是动态调试了，在if ( (byte_403040)(&amp;unk_4033D4, &amp;unk_403020) )处下断点，调试，然后随便输一点回车，跳转后F5</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010083427670.png"
-                      alt="image-20231010083427670"
-                ></p>
-<p>此时我们再次进入byte_403040，发现其中的数据发生了改变</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010084212846.png"
-                      alt="image-20231010084212846"
-                ></p>
-<p>这些便是byte_403040内正确的数据，选中byte_403040中的所有数据，按U，取消对函数、代码、数据的定义，</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010085012425.png"
-                      alt="image-20231010085012425"
-                >然后再按C，将16进制数据分析为代码，</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010085036940.png"
-                      alt="image-20231010085036940"
-                >最后按P，将代码分析为函数可以被调用</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010085144077.png"
-                      alt="image-20231010085144077"
-                ></p>
-<p>然后再F5，看到的就是byte_403040函数哩</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010085242515.png"
-                      alt="image-20231010085242515"
-                ></p>
-<p>基本逻辑就已经都出来了，脚本也很简单</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line">enc=[  <span class="number">0x7C</span>, <span class="number">0x82</span>, <span class="number">0x75</span>, <span class="number">0x7B</span>, <span class="number">0x6F</span>, <span class="number">0x47</span>, <span class="number">0x61</span>, <span class="number">0x57</span>, <span class="number">0x53</span>, <span class="number">0x25</span>,<span class="number">0x47</span>, <span class="number">0x53</span>, <span class="number">0x25</span>, <span class="number">0x84</span>, <span class="number">0x6A</span>, <span class="number">0x27</span>, <span class="number">0x68</span>, <span class="number">0x27</span>,</span><br><span class="line">       <span class="number">0x67</span>, <span class="number">0x6A</span>, <span class="number">0x7D</span>, <span class="number">0x84</span>, <span class="number">0x7B</span>, <span class="number">0x35</span>, <span class="number">0x35</span>, <span class="number">0x48</span>, <span class="number">0x25</span>, <span class="number">0x7B</span>, <span class="number">0x7E</span>, <span class="number">0x6A</span>, <span class="number">0x33</span>, <span class="number">0x71</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enc:</span><br><span class="line">       i=i-<span class="number">0x5</span></span><br><span class="line">       i=i^<span class="number">0x11</span></span><br><span class="line">       <span class="built_in">print</span>(<span class="built_in">chr</span>(i),end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="D:\picture_md\image-20231010085404499.png"
-                      alt="image-20231010085404499"
-                ></p>
-<p>补充：这只是一种解法，还可以通过分析sub_401042()函数，用IDA内部的脚本将byte_403040内的数据还原后再解密</p>
-<p><strong>over</strong></p>
-]]></content>
-      <tags>
-        <tag>test1</tag>
-      </tags>
   </entry>
   <entry>
     <title>主题样式 Demo</title>
@@ -180,5 +46,26 @@
       <tags>
         <tag>demomomomomomomomomo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/01/19/again/</url>
+    <content><![CDATA[<p>DS&#x3D;075A ，即075A0是程序开始的地方，隔过100H程序段前缀（PSP），从076A……….</p>
+<p>DS 数据段</p>
+<p>CS 代码段</p>
+<p>SS 栈段</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/19/H4YNs32FvfZqxVd.png"
+                      alt="image-20230924203325785"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/19/OSlUsyJ6GCV8ofY.jpg"
+                      alt="R-C"
+                ></p>
+]]></content>
   </entry>
 </search>
