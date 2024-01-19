@@ -48,7 +48,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>test again</title>
     <url>/2024/01/19/again/</url>
     <content><![CDATA[<p>DS&#x3D;075A ，即075A0是程序开始的地方，隔过100H程序段前缀（PSP），从076A……….</p>
 <p>DS 数据段</p>
@@ -67,5 +67,8 @@
                       alt="R-C"
                 ></p>
 ]]></content>
+      <categories>
+        <category>啊啊啊</category>
+      </categories>
   </entry>
 </search>
