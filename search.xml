@@ -47,4 +47,32 @@
         <tag>demomomomomomomomomo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>test3</title>
+    <url>/2024/01/21/test3/</url>
+    <content><![CDATA[<p>999</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>PlayStation</category>
+      </categories>
+      <tags>
+        <tag>demo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test4</title>
+    <url>/2024/01/21/test4/</url>
+    <content><![CDATA[<p>666</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>sss</category>
+        <category>abc</category>
+        <category>789</category>
+      </categories>
+      <tags>
+        <tag>demo</tag>
+      </tags>
+  </entry>
 </search>
