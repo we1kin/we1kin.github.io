@@ -19,6 +19,39 @@
 ]]></content>
   </entry>
   <entry>
+    <title>test photo</title>
+    <url>/2024/02/03/test-photo/</url>
+    <content><![CDATA[<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="D:\picture_md\屏幕截图-2023-12-13-154345.1uhyzw86xodc.webp"
+                      alt="屏幕截图-2023-12-13-154345"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="D:\picture_md\jpg.jpg"
+                      alt="jpg"
+                ></p>
+]]></content>
+      <tags>
+        <tag>photo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test3</title>
+    <url>/2024/01/21/test3/</url>
+    <content><![CDATA[<p>999</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+        <category>PlayStation</category>
+      </categories>
+      <tags>
+        <tag>demo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test2</title>
     <url>/2024/01/19/test2/</url>
     <content><![CDATA[
@@ -39,19 +72,6 @@
       </categories>
       <tags>
         <tag>demomomomomomomomomo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test3</title>
-    <url>/2024/01/21/test3/</url>
-    <content><![CDATA[<p>999</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-        <category>PlayStation</category>
-      </categories>
-      <tags>
-        <tag>demo</tag>
       </tags>
   </entry>
   <entry>
