@@ -22,15 +22,51 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="article">
-<meta property="og:title" content="a">
+        <meta name="description" content="题目为240123春苗集训营进阶班考核的检材，第一次学习服务器取证，跟着大佬的wp复现的 1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】162222  在&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件中的Port一行中查看  2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】119524203268   但在网页的宝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记第一次服务器取证复现">
 <meta property="og:url" content="http://example.com/2024/03/08/a/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目为240123春苗集训营进阶班考核的检材，第一次学习服务器取证，跟着大佬的wp复现的 1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】162222  在&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件中的Port一行中查看  2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】119524203268   但在网页的宝">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192444.4xuacez0uo.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blogimage.ltifs92g.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192451.3k7r8dnytu.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192457.839sbctfrn.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192029.5q75ss11k7.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192217.9rj57657wa.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192304.32hpif84fo.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192340.45fewzy09.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192324.3uul05orxg.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blogimage.45heuoyw3k.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192703.70a2z3j9hf.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192735.2vehmzm4mv.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192812.1ov6edxb39.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192837.4g48mgjgos.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192852.8vmnrpvwio.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192911.b8nacmdnm.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192933.6wqh1dqisi.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193016.ibv5s8nop.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193030.6t6v3nxirk.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193133.5c0q1wtgja.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193100.5mnjv28n8f.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193302.b8nacmnbf.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193314.2yy3kpfpq3.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193345.5j3xxcfpsd.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193402.7p1cmtr6y.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193422.6wqh1dqxyp.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193430.5j3xxcfxab.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193524.99t3il4u0o.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193546.2dofyelli5.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193557.b8nacn1zw.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193623.7awws8zg73.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193817.1hryiyc17p.webp">
 <meta property="article:published_time" content="2024-03-08T08:32:09.000Z">
-<meta property="article:modified_time" content="2024-03-08T08:32:21.760Z">
+<meta property="article:modified_time" content="2024-03-08T12:02:23.903Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png">
     
     
     <!--- Icon Part-->
@@ -42,7 +78,7 @@
     
     <title>
         
-            a -
+            记第一次服务器取证复现 -
         
         想不出名字的BLOG
     </title>
@@ -618,7 +654,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">a</h1>
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">记第一次服务器取证复现</h1>
                 </div>
             
             </div>
@@ -646,8 +682,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-03-08 16:32:21</span>
-            <span class="mobile">2024-03-08 16:32:21</span>
+            <span class="desktop">2024-03-08 20:02:23</span>
+            <span class="mobile">2024-03-08 20:02:23</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -657,9 +693,13 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>981 字</span>
+        </span>
+    
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -678,21 +718,266 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            
+            <p>题目为240123春苗集训营进阶班考核的检材，第一次学习服务器取证，跟着大佬的wp复现的</p>
+<h3 id="1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】"><a href="#1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】" class="headerlink" title="1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】"></a>1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">62222</span><br></pre></td></tr></table></figure></div>
+
+<p>在&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件中的Port一行中查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png"
+                      alt="blog屏幕截图-2024-03-08-165635"
+                ></p>
+<h3 id="2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】"><a href="#2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】" class="headerlink" title="2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】"></a>2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19524203268</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192444.4xuacez0uo.webp"
+                      alt="blog屏幕截图-2024-03-08-192444"
+                ></p>
+<p>但在网页的宝塔面板中账号中间有几位数被打了*看不见</p>
+<h3 id="3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01-12-33-33】"><a href="#3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01-12-33-33】" class="headerlink" title="3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】"></a>3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2022-06-06 14:12:22</span><br></pre></td></tr></table></figure></div>
+
+<p>使用命令<code>lastlog -u chk02</code>查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blogimage.ltifs92g.webp"
+                      alt="blogimage"
+                ></p>
+<h3 id="4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：-www-abc-def-ghi】"><a href="#4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：-www-abc-def-ghi】" class="headerlink" title="4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】"></a>4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/www/wwwroot/www.chkinvest.hk</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192451.3k7r8dnytu.webp"
+                      alt="blog屏幕截图-2024-03-08-192451"
+                ></p>
+<h3 id="5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】"><a href="#5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】" class="headerlink" title="5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】"></a>5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5fa850f3e28a</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192457.839sbctfrn.webp"
+                      alt="blog屏幕截图-2024-03-08-192457"
+                ></p>
+<h3 id="6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1-1-1】"><a href="#6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1-1-1】" class="headerlink" title="6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】"></a>6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.7.36</span><br></pre></td></tr></table></figure></div>
+
+<p>连上finashell后查看，出现连不上的情况可以参考后两两条参考资料</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192029.5q75ss11k7.webp"
+                      alt="blog屏幕截图-2024-03-05-192029"
+                ></p>
+<h3 id="7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】"><a href="#7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】" class="headerlink" title="7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】"></a>7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13336</span><br></pre></td></tr></table></figure></div>
+
+<p>proxy应该是使用了代理，所以是映射到外部使用</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192217.9rj57657wa.webp"
+                      alt="blog屏幕截图-2024-03-05-192217"
+                ></p>
+<h3 id="8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc-123456】"><a href="#8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc-123456】" class="headerlink" title="8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】"></a>8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yunhui.#123qwe</span><br></pre></td></tr></table></figure></div>
+
+<p>在&#x2F;www&#x2F;wwwroot&#x2F;<a class="link"   target="_blank" rel="noopener" href="http://www.chkinvest.hk/application/database.php" >www.chkinvest.hk/application/database.php <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192304.32hpif84fo.webp"
+                      alt="blog屏幕截图-2024-03-05-192304"
+                ></p>
+<h3 id="9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】"><a href="#9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】" class="headerlink" title="9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】"></a>9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9014</span><br></pre></td></tr></table></figure></div>
+
+<p>直接登录宝塔会显示没有授权，执行<code>bt 12 &amp; bt 13</code>命令后可以访问</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192340.45fewzy09.webp"
+                      alt="blog屏幕截图-2024-03-05-192340"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192324.3uul05orxg.webp"
+                      alt="blog屏幕截图-2024-03-05-192324"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blogimage.45heuoyw3k.webp"
+                      alt="blogimage"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192703.70a2z3j9hf.webp"
+                      alt="blog屏幕截图-2024-03-05-192703"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192735.2vehmzm4mv.webp"
+                      alt="blog屏幕截图-2024-03-05-192735"
+                ></p>
+<h3 id="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】"><a href="#10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】" class="headerlink" title="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】"></a>10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">database.php</span><br></pre></td></tr></table></figure></div>
+
+<p>就是第八题的文件</p>
+<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-98-99-64-x31-50-54-x2e-99-111-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-98-99-64-x31-50-54-x2e-99-111-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#x61;&#98;&#99;&#64;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#x61;&#98;&#99;&#64;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109;" >&#x61;&#98;&#99;&#64;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
+
+<p>在宝塔中找到数据库密码，用Navicat连接</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192812.1ov6edxb39.webp"
+                      alt="blog屏幕截图-2024-03-05-192812"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192837.4g48mgjgos.webp"
+                      alt="blog屏幕截图-2024-03-05-192837"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192852.8vmnrpvwio.webp"
+                      alt="blog屏幕截图-2024-03-05-192852"
+                ></p>
+<p>报错显示不允许连接，在宝塔中更改权限后连接</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192911.b8nacmdnm.webp"
+                      alt="blog屏幕截图-2024-03-05-192911"
+                ></p>
+<p>在mirrormx_customer_chat_user表中</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192933.6wqh1dqisi.webp"
+                      alt="blog屏幕截图-2024-03-05-192933"
+                ></p>
+<h3 id="12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】"><a href="#12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】" class="headerlink" title="12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】"></a>12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure></div>
+
+<p>修改C:\Windows\System32\drivers\etc\hosts文件将IP绑定域名</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193016.ibv5s8nop.webp"
+                      alt="blog屏幕截图-2024-03-05-193016"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193030.6t6v3nxirk.webp"
+                      alt="blog屏幕截图-2024-03-05-193030"
+                ></p>
+<p>访问域名&#x2F;admin进入管理员登录界面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193133.5c0q1wtgja.webp"
+                      alt="blog屏幕截图-2024-03-05-193133"
+                ></p>
+<p>Navicat连接docker中的mysql数据库，在wp_userinfo表找到admin用户的密码哈希值，这里有点不太懂jy和jychat两个数据库之间关系</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193100.5mnjv28n8f.webp"
+                      alt="blog屏幕截图-2024-03-05-193100"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193302.b8nacmnbf.webp"
+                      alt="blog屏幕截图-2024-03-05-193302"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193314.2yy3kpfpq3.webp"
+                      alt="blog屏幕截图-2024-03-05-193314"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193345.5j3xxcfpsd.webp"
+                      alt="blog屏幕截图-2024-03-05-193345"
+                ></p>
+<p>登录后在风险管理中找到指定的亏损用户</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193402.7p1cmtr6y.webp"
+                      alt="blog屏幕截图-2024-03-05-193402"
+                ></p>
+<h3 id="13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】"><a href="#13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】" class="headerlink" title="13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】"></a>13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1100</span><br></pre></td></tr></table></figure></div>
+
+<p>在客户列表中黄娇娇的资金报表中查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193422.6wqh1dqxyp.webp"
+                      alt="blog屏幕截图-2024-03-05-193422"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193430.5j3xxcfxab.webp"
+                      alt="blog屏幕截图-2024-03-05-193430"
+                ></p>
+<h3 id="14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】"><a href="#14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】" class="headerlink" title="14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】"></a>14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xielili</span><br></pre></td></tr></table></figure></div>
+
+<p><code>select uid,count(*)from wp_order group by uid;</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193524.99t3il4u0o.webp"
+                      alt="blog屏幕截图-2024-03-05-193524"
+                ></p>
+<h3 id="15、接上题，该用户亏损多少笔？【答案格式：123456】"><a href="#15、接上题，该用户亏损多少笔？【答案格式：123456】" class="headerlink" title="15、接上题，该用户亏损多少笔？【答案格式：123456】"></a>15、接上题，该用户亏损多少笔？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193546.2dofyelli5.webp"
+                      alt="blog屏幕截图-2024-03-05-193546"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193557.b8nacn1zw.webp"
+                      alt="blog屏幕截图-2024-03-05-193557"
+                ></p>
+<p>在普通用户界面登录</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193623.7awws8zg73.webp"
+                      alt="blog屏幕截图-2024-03-05-193623"
+                ></p>
+<p>查看得知有11笔亏损记录</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193817.1hryiyc17p.webp"
+                      alt="blog屏幕截图-2024-03-05-193817"
+                ></p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>大佬的wp前五道是用火眼做的，没有火眼只复现了两个，感觉理论上都能复现，但没找到方法，后面两个数据库的关系也搞不懂，但第一次做服务器取证复现完还是收获蛮多的，以前finashell基本没用过，一开始怎么都连不上，查了好些资料才解决，希望下次能多干几道题。</p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NQtnsCYGl1h-G7CvKfkNGg" >20240201美亚春苗集训营进阶班考核取证部分参考wp (qq.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/hjw1314kl/article/details/102968761" >虚拟机linux系统centos7远程连接（开启SSH）_虚拟机上centos7开启ssh允许远程登录-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44782343/article/details/112761994" >解决虚拟机报From 192.168.200.128 icmp_seq&#x3D;1 Destination Host Unreachable-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
         </div>
 
         
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> a</li>
+        <li><strong>标题:</strong> 记第一次服务器取证复现</li>
         <li><strong>作者:</strong> L...</li>
         <li><strong>创建于
                 :</strong> 2024-03-08 16:32:09</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-03-08 16:32:21
+                    :</strong> 2024-03-08 20:02:23
             </li>
         
         <li>
@@ -807,8 +1092,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">a</div>
-        
+        <div class="page-title">记第一次服务器取证复现</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8SSH%E7%99%BB%E5%BD%95%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E9%9D%A2%E6%9D%BF%E7%BB%91%E5%AE%9A%E5%AE%9D%E5%A1%94%E8%B4%A6%E5%8F%B7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A13736678787%E3%80%91"><span class="nav-text">2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7chk02%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A2020-01-01-12-33-33%E3%80%91"><span class="nav-text">3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%88%A0%E9%99%A4%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8E%9F%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A-www-abc-def-ghi%E3%80%91"><span class="nav-text">4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E5%B1%9E%E5%AE%B9%E5%99%A8id%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88%E5%8F%96id%E5%89%8D12%E4%BD%8D%EF%BC%89%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc123456%E3%80%91"><span class="nav-text">5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8Mysql%E7%9A%84%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A1-1-1%E3%80%91"><span class="nav-text">6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E6%98%A0%E5%B0%84%E5%88%B0%E5%A4%96%E9%83%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc-123456%E3%80%91"><span class="nav-text">8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%B6%89%E6%A1%88%E7%BD%91%E7%AB%99%E7%BB%91%E5%AE%9A%E7%9A%84%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%B6%89%E6%A1%88%E7%BD%91%E7%AB%99%E7%AB%99%E7%82%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc-php%E3%80%91"><span class="nav-text">10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E5%AE%A2%E6%9C%8D%E8%B4%A6%E5%8F%B7kf01%E7%9A%84%E9%82%AE%E7%AE%B1%E5%9C%B0%E5%9D%80%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A-x61-98-99-64-x31-50-54-x2e-99-111-109-%E3%80%91"><span class="nav-text">11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：abc@126.com 】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%BA%86%E9%A3%8E%E6%8E%A7%E7%AE%A1%E7%90%86%EF%BC%8C%E5%BD%93%E5%89%8D%E6%8C%87%E5%AE%9A%E4%BA%8F%E6%8D%9F%E7%94%A8%E6%88%B7%E6%9C%89%E5%87%A0%E4%B8%AA%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%8A%A5%E6%A1%88%E4%BA%BA%E9%BB%84%E5%A8%87%E5%A8%87%E6%80%BB%E5%85%B1%E7%9B%88%E5%88%A9%E8%B5%9A%E5%8F%96%E5%A4%9A%E5%B0%91%E9%92%B1%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E4%BA%A4%E6%98%93%E7%AC%94%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc%E3%80%91"><span class="nav-text">14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E3%80%81%E6%8E%A5%E4%B8%8A%E9%A2%98%EF%BC%8C%E8%AF%A5%E7%94%A8%E6%88%B7%E4%BA%8F%E6%8D%9F%E5%A4%9A%E5%B0%91%E7%AC%94%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">15、接上题，该用户亏损多少笔？【答案格式：123456】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-text">参考资料：</span></a>
 
     </div>
 </div>
@@ -845,7 +1130,7 @@
                     </span>
                     
                         <span>
-                            共 114 字
+                            共 1.1k 字
                         </span>
                     
                 </p>
