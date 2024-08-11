@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="L...">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/03/08/blog1/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记第一次服务器取证复现">
+<meta property="og:url" content="http://example.com/2024/03/08/blog1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="false">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192444.4xuacez0uo.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blogimage.ltifs92g.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192451.3k7r8dnytu.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192457.839sbctfrn.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192029.3uumlai6g0.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192217.9rj57657wa.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192304.32hpif84fo.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192340.45fewzy09.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192324.3uul05orxg.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blogimage.45heuoyw3k.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192703.70a2z3j9hf.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192735.2vehmzm4mv.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192812.1ov6edxb39.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192837.4g48mgjgos.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192852.8vmnrpvwio.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192911.b8nacmdnm.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192933.6wqh1dqisi.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193016.ibv5s8nop.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193030.6t6v3nxirk.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193133.5c0q1wtgja.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193100.5mnjv28n8f.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193302.b8nacmnbf.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193314.2yy3kpfpq3.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193345.5j3xxcfpsd.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193402.7p1cmtr6y.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193422.6wqh1dqxyp.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193430.5j3xxcfxab.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193524.99t3il4u0o.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193546.2dofyelli5.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193557.b8nacn1zw.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193623.7awws8zg73.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193817.1hryiyc17p.webp">
+<meta property="article:published_time" content="2024-03-08T08:32:09.000Z">
+<meta property="article:modified_time" content="2024-04-16T12:00:25.406Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="电子取证">
+<meta property="article:tag" content="复现">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/%E6%98%9F%E7%90%83.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/%E6%98%9F%E7%90%83.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/%E6%98%9F%E7%90%83.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            记第一次服务器取证复现 -
+        
+        R@in&#39;s BLOG
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/assets/build/styles.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    
+        <script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/anime.min.js"></script>
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["Pro"]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Evenhere","subtitle":{"text":["Youth is not a period of time,it is a state of mind.","“少焦虑，多睡觉，常开心。”"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/we1kin","instagram":null,"zhihu":null,"twitter":null,"email":"R4in5@outlook.com"},"qrs":{"weixin":"https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/blog8dbf4a804d6b9f98690dbe8ab33c75d.361h8dcuol.webp"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"categories":{"path":"/categories","icon":"fa-regular fa-folder"},"About":{"path":"/about","icon":"fa-regular fa-user"},"Links":{"path":"/links","icon":"fa-regular fa-link"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"we1c0me","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Essays":{"path":"/essays","icon":"fa-regular fa-comment-dots"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/1/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        R@in&#39;s BLOG
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [40,0],
+                translateZ: 0,
+                opacity: [0,1],
+                filter: ['blur(5px)', 'blur(0px)'], // Starting from blurred to unblurred
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i,
+            }).add({
+                targets: '.ml13 .letter',
+                translateY: [0,-40],
+                opacity: [1,0],
+                filter: ['blur(0px)', 'blur(5px)'], // Ending from unblurred to blurred
+                easing: "easeInExpo",
+                duration: 1200,
+                delay: (el, i) => 100 + 30 * i,
+                complete: function() {
+                    hidePreloader(); // Call hidePreloader after the animation completes
+                }
+            });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                R@in&#39;s BLOG
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links"
+                                        >
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-regular fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/essays"
+                        >
+                            <span>Essays</span>
+                            <i class="fa-regular fa-comment-dots fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="/images/wallhaven-zygeko.webp" alt="记第一次服务器取证复现" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">记第一次服务器取证复现</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/fufu.png">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">L...</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Pro</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-03-08 16:32:09</span>
+        <span class="mobile">2024-03-08 16:32:09</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-04-16 20:25</span>
+            <span class="mobile">2024-04-16 20:25</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">电子取证</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%A4%8D%E7%8E%B0/">复现</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p>题目为240123春苗集训营进阶班考核的检材，第一次学习服务器取证，跟着大佬的wp复现的</p>
+<h3 id="1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】"><a href="#1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】" class="headerlink" title="1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】"></a>1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">62222</span><br></pre></td></tr></table></figure></div>
+
+<p>在&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件中的Port一行中查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-165635.2h81xchsme.png"
+                      alt="blog屏幕截图-2024-03-08-165635"
+                ></p>
+<h3 id="2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】"><a href="#2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】" class="headerlink" title="2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】"></a>2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19524203268</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192444.4xuacez0uo.webp"
+                      alt="blog屏幕截图-2024-03-08-192444"
+                ></p>
+<p>但在网页的宝塔面板中账号中间有几位数被打了*看不见</p>
+<h3 id="3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01-12-33-33】"><a href="#3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01-12-33-33】" class="headerlink" title="3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】"></a>3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2022-06-06 14:12:22</span><br></pre></td></tr></table></figure></div>
+
+<p>使用命令<code>lastlog -u chk02</code>查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blogimage.ltifs92g.webp"
+                      alt="blogimage"
+                ></p>
+<h3 id="4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：-www-abc-def-ghi】"><a href="#4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：-www-abc-def-ghi】" class="headerlink" title="4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】"></a>4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/www/wwwroot/www.chkinvest.hk</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192451.3k7r8dnytu.webp"
+                      alt="blog屏幕截图-2024-03-08-192451"
+                ></p>
+<h3 id="5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】"><a href="#5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】" class="headerlink" title="5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】"></a>5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5fa850f3e28a</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-08-192457.839sbctfrn.webp"
+                      alt="blog屏幕截图-2024-03-08-192457"
+                ></p>
+<h3 id="6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1-1-1】"><a href="#6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1-1-1】" class="headerlink" title="6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】"></a>6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.7.36</span><br></pre></td></tr></table></figure></div>
+
+<p>连上finashell后查看，出现连不上的情况可以参考后两两条参考资料</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192029.3uumlai6g0.webp"
+                      alt="blog屏幕截图-2024-03-05-192029"
+                ></p>
+<h3 id="7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】"><a href="#7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】" class="headerlink" title="7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】"></a>7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13336</span><br></pre></td></tr></table></figure></div>
+
+<p>proxy应该是使用了代理，所以是映射到外部使用</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192217.9rj57657wa.webp"
+                      alt="blog屏幕截图-2024-03-05-192217"
+                ></p>
+<h3 id="8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc-123456】"><a href="#8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc-123456】" class="headerlink" title="8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】"></a>8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yunhui.#123qwe</span><br></pre></td></tr></table></figure></div>
+
+<p>在&#x2F;www&#x2F;wwwroot&#x2F;<a class="link"   target="_blank" rel="noopener" href="http://www.chkinvest.hk/application/database.php" >www.chkinvest.hk/application/database.php <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192304.32hpif84fo.webp"
+                      alt="blog屏幕截图-2024-03-05-192304"
+                ></p>
+<h3 id="9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】"><a href="#9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】" class="headerlink" title="9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】"></a>9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9014</span><br></pre></td></tr></table></figure></div>
+
+<p>直接登录宝塔会显示没有授权，执行<code>bt 12 &amp; bt 13</code>命令后可以访问</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192340.45fewzy09.webp"
+                      alt="blog屏幕截图-2024-03-05-192340"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192324.3uul05orxg.webp"
+                      alt="blog屏幕截图-2024-03-05-192324"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blogimage.45heuoyw3k.webp"
+                      alt="blogimage"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192703.70a2z3j9hf.webp"
+                      alt="blog屏幕截图-2024-03-05-192703"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192735.2vehmzm4mv.webp"
+                      alt="blog屏幕截图-2024-03-05-192735"
+                ></p>
+<h3 id="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】"><a href="#10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】" class="headerlink" title="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】"></a>10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">database.php</span><br></pre></td></tr></table></figure></div>
+
+<p>就是第八题的文件</p>
+<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-x62-x63-64-49-50-x36-x2e-x63-111-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-x62-x63-64-49-50-x36-x2e-x63-111-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#x61;&#x62;&#x63;&#64;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#x61;&#x62;&#x63;&#64;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109;" >&#x61;&#x62;&#x63;&#64;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
+
+<p>在宝塔中找到数据库密码，用Navicat连接</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192812.1ov6edxb39.webp"
+                      alt="blog屏幕截图-2024-03-05-192812"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192837.4g48mgjgos.webp"
+                      alt="blog屏幕截图-2024-03-05-192837"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192852.8vmnrpvwio.webp"
+                      alt="blog屏幕截图-2024-03-05-192852"
+                ></p>
+<p>报错显示不允许连接，在宝塔中更改权限后连接</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192911.b8nacmdnm.webp"
+                      alt="blog屏幕截图-2024-03-05-192911"
+                ></p>
+<p>在mirrormx_customer_chat_user表中</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-192933.6wqh1dqisi.webp"
+                      alt="blog屏幕截图-2024-03-05-192933"
+                ></p>
+<h3 id="12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】"><a href="#12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】" class="headerlink" title="12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】"></a>12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure></div>
+
+<p>修改C:\Windows\System32\drivers\etc\hosts文件将IP绑定域名</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193016.ibv5s8nop.webp"
+                      alt="blog屏幕截图-2024-03-05-193016"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193030.6t6v3nxirk.webp"
+                      alt="blog屏幕截图-2024-03-05-193030"
+                ></p>
+<p>访问域名&#x2F;admin进入管理员登录界面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193133.5c0q1wtgja.webp"
+                      alt="blog屏幕截图-2024-03-05-193133"
+                ></p>
+<p>Navicat连接docker中的mysql数据库，在wp_userinfo表找到admin用户的密码哈希值，这里有点不太懂jy和jychat两个数据库之间关系</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193100.5mnjv28n8f.webp"
+                      alt="blog屏幕截图-2024-03-05-193100"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193302.b8nacmnbf.webp"
+                      alt="blog屏幕截图-2024-03-05-193302"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193314.2yy3kpfpq3.webp"
+                      alt="blog屏幕截图-2024-03-05-193314"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193345.5j3xxcfpsd.webp"
+                      alt="blog屏幕截图-2024-03-05-193345"
+                ></p>
+<p>登录后在风险管理中找到指定的亏损用户</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193402.7p1cmtr6y.webp"
+                      alt="blog屏幕截图-2024-03-05-193402"
+                ></p>
+<h3 id="13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】"><a href="#13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】" class="headerlink" title="13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】"></a>13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1100</span><br></pre></td></tr></table></figure></div>
+
+<p>在客户列表中黄娇娇的资金报表中查看</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193422.6wqh1dqxyp.webp"
+                      alt="blog屏幕截图-2024-03-05-193422"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193430.5j3xxcfxab.webp"
+                      alt="blog屏幕截图-2024-03-05-193430"
+                ></p>
+<h3 id="14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】"><a href="#14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】" class="headerlink" title="14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】"></a>14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xielili</span><br></pre></td></tr></table></figure></div>
+
+<p><code>select uid,count(*)from wp_order group by uid;</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193524.99t3il4u0o.webp"
+                      alt="blog屏幕截图-2024-03-05-193524"
+                ></p>
+<h3 id="15、接上题，该用户亏损多少笔？【答案格式：123456】"><a href="#15、接上题，该用户亏损多少笔？【答案格式：123456】" class="headerlink" title="15、接上题，该用户亏损多少笔？【答案格式：123456】"></a>15、接上题，该用户亏损多少笔？【答案格式：123456】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193546.2dofyelli5.webp"
+                      alt="blog屏幕截图-2024-03-05-193546"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193557.b8nacn1zw.webp"
+                      alt="blog屏幕截图-2024-03-05-193557"
+                ></p>
+<p>在普通用户界面登录</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193623.7awws8zg73.webp"
+                      alt="blog屏幕截图-2024-03-05-193623"
+                ></p>
+<p>查看得知有11笔亏损记录</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog1/blog%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-03-05-193817.1hryiyc17p.webp"
+                      alt="blog屏幕截图-2024-03-05-193817"
+                ></p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>大佬的wp前五道是用火眼做的，没有火眼只复现了两个，感觉理论上都能复现，但没找到方法，后面两个数据库的关系也搞不懂，但第一次做服务器取证复现完还是收获蛮多的，以前finashell基本没用过，一开始怎么都连不上，查了好些资料才解决，希望下次能多干几道题。</p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NQtnsCYGl1h-G7CvKfkNGg" >20240201美亚春苗集训营进阶班考核取证部分参考wp (qq.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/hjw1314kl/article/details/102968761" >虚拟机linux系统centos7远程连接（开启SSH）_虚拟机上centos7开启ssh允许远程登录-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44782343/article/details/112761994" >解决虚拟机报From 192.168.200.128 icmp_seq&#x3D;1 Destination Host Unreachable-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 记第一次服务器取证复现</li>
+        <li><strong>作者:</strong> L...</li>
+        <li><strong>创建于
+                :</strong> 2024-03-08 16:32:09</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-04-16 20:00:25
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://we1kin.github.io/2024/03/08/blog1/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">#电子取证</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E5%A4%8D%E7%8E%B0/">#复现</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/04/18/blog2/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">服务器取证中两种Shell脚本加密方式</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/03/08/First/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Welcome</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://blog-comment-waline-wine.vercel.app',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">记第一次服务器取证复现</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8SSH%E7%99%BB%E5%BD%95%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">1、对检材1分析，服务器SSH登录端口是多少？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E9%9D%A2%E6%9D%BF%E7%BB%91%E5%AE%9A%E5%AE%9D%E5%A1%94%E8%B4%A6%E5%8F%B7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A13736678787%E3%80%91"><span class="nav-text">2、对检材1分析，面板绑定宝塔账号是什么？【答案格式：13736678787】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7chk02%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%99%BB%E5%BD%95%E6%97%B6%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A2020-01-01-12-33-33%E3%80%91"><span class="nav-text">3、对检材1分析，系统用户chk02最后一次登录时间是什么？【答案格式：2020-01-01 12:33:33】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E5%88%A0%E9%99%A4%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8E%9F%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A-www-abc-def-ghi%E3%80%91"><span class="nav-text">4、对检材1分析，宝塔面板删除网站文件夹原路径在哪里？【答案格式：&#x2F;www&#x2F;abc&#x2F;def.ghi】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8CMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E5%B1%9E%E5%AE%B9%E5%99%A8id%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88%E5%8F%96id%E5%89%8D12%E4%BD%8D%EF%BC%89%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc123456%E3%80%91"><span class="nav-text">5、对检材1分析，Mysql数据库所属容器id是什么？（取id前12位）【答案格式：abc123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8Mysql%E7%9A%84%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A1-1-1%E3%80%91"><span class="nav-text">6、对检材1分析，数据库容器Mysql的版本是多少？【答案格式：1.1.1】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E6%98%A0%E5%B0%84%E5%88%B0%E5%A4%96%E9%83%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">7、对检材1分析，数据库容器映射到外部使用的端口是什么？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%B9%E5%99%A8%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc-123456%E3%80%91"><span class="nav-text">8、对检材1分析，数据库容器登录密码是什么？【答案格式：abc@#123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%B6%89%E6%A1%88%E7%BD%91%E7%AB%99%E7%BB%91%E5%AE%9A%E7%9A%84%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">9、对检材1分析，涉案网站绑定的监听端口是什么？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%B6%89%E6%A1%88%E7%BD%91%E7%AB%99%E7%AB%99%E7%82%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc-php%E3%80%91"><span class="nav-text">10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E5%AE%A2%E6%9C%8D%E8%B4%A6%E5%8F%B7kf01%E7%9A%84%E9%82%AE%E7%AE%B1%E5%9C%B0%E5%9D%80%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A-x61-x62-x63-64-49-50-x36-x2e-x63-111-109-%E3%80%91"><span class="nav-text">11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：abc@126.com 】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E7%B3%BB%E7%BB%9F%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%BA%86%E9%A3%8E%E6%8E%A7%E7%AE%A1%E7%90%86%EF%BC%8C%E5%BD%93%E5%89%8D%E6%8C%87%E5%AE%9A%E4%BA%8F%E6%8D%9F%E7%94%A8%E6%88%B7%E6%9C%89%E5%87%A0%E4%B8%AA%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">12、对检材1分析，系统中设置了风控管理，当前指定亏损用户有几个？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E6%8A%A5%E6%A1%88%E4%BA%BA%E9%BB%84%E5%A8%87%E5%A8%87%E6%80%BB%E5%85%B1%E7%9B%88%E5%88%A9%E8%B5%9A%E5%8F%96%E5%A4%9A%E5%B0%91%E9%92%B1%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">13、对检材1分析，报案人黄娇娇总共盈利赚取多少钱？【答案格式：123456】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14%E3%80%81%E5%AF%B9%E6%A3%80%E6%9D%901%E5%88%86%E6%9E%90%EF%BC%8C%E4%BA%A4%E6%98%93%E7%AC%94%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9Aabc%E3%80%91"><span class="nav-text">14、对检材1分析，交易笔数最多的用户信息是哪个？【答案格式：abc】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E3%80%81%E6%8E%A5%E4%B8%8A%E9%A2%98%EF%BC%8C%E8%AF%A5%E7%94%A8%E6%88%B7%E4%BA%8F%E6%8D%9F%E5%A4%9A%E5%B0%91%E7%AC%94%EF%BC%9F%E3%80%90%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F%EF%BC%9A123456%E3%80%91"><span class="nav-text">15、接上题，该用户亏损多少笔？【答案格式：123456】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%EF%BC%9A"><span class="nav-text">参考资料：</span></a>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">L...</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 9 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.4</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    <script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/Swup.min.js"></script><script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/SwupSlideTheme.min.js"></script><script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/SwupProgressPlugin.min.js"></script><script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/SwupScrollPlugin.min.js"></script><script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/SwupPreloadPlugin.min.js"></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/imageViewer.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/utils.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/main.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/layouts/navbarShrink.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/scrollTopBottom.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/layouts/categoryList.js"></script>
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/localSearch.js"></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/runtime.js"></script>
+    <script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/odometer.min.js"></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/libs/Typed.min.js"></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/tools/tocToggle.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/layouts/toc.js"></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.6.4/files/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+</body>
+</html>
