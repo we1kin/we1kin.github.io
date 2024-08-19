@@ -304,15 +304,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Welcome</title>
-    <url>/2024/03/08/First/</url>
-    <content><![CDATA[<p>这里是我的blog</p>
-<p>本站建于2024&#x2F;1&#x2F;17，虽然是写了，但别真的看🥵</p>
-<p>评论区由于vercel被墙，需要科学上网（以后再去搞服务器域名）🥲</p>
-<p>欢迎大家contact me</p>
-]]></content>
-  </entry>
-  <entry>
     <title>2023龙信杯服务器部分1</title>
     <url>/2024/08/19/2023longxin-server1-forensics/</url>
     <content><![CDATA[<p><strong>案情介绍</strong></p>
@@ -593,6 +584,65 @@
       </tags>
   </entry>
   <entry>
+    <title>Welcome</title>
+    <url>/2024/03/08/First/</url>
+    <content><![CDATA[<p>这里是我的blog</p>
+<p>本站建于2024&#x2F;1&#x2F;17，虽然是写了，但别真的看🥵</p>
+<p>评论区由于vercel被墙，需要科学上网（以后再去搞服务器域名）🥲</p>
+<p>欢迎大家contact me</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>服务器取证中两种Shell脚本加密方式</title>
+    <url>/2024/04/18/blog2/</url>
+    <content><![CDATA[<h3 id="1-gzexe加密"><a href="#1-gzexe加密" class="headerlink" title="(1)gzexe加密"></a>(1)gzexe加密</h3><p>gzexe命令用于压缩可执行文件，并且可以自动解压并执行这些文件，在其压缩的过程中会改变部分文件内容的显示。</p>
+<p>使用方法：</p>
+<p>加密:<code>gzexe file</code></p>
+<p>解密:<code>gzexe -d file</code></p>
+<p>在本题中time.sh文件打开后看不懂一点，直接搜代码内容得到相关内容<a class="link"   href="https://www.qcgzxw.cn/575.html%EF%BC%8C%E5%88%86%E6%9E%90%E5%BE%97%E5%BA%94%E8%AF%A5%E6%98%AFgzexe%E5%8A%A0%E5%AF%86%EF%BC%8C%E7%9B%B4%E6%8E%A5%60gzexe" >https://www.qcgzxw.cn/575.html，分析得应该是gzexe加密，直接`gzexe <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> -d time.sh&#96;解密得到shell脚本</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.1hs0725ani.webp"
+                      alt="blogimage"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.54xjul17pc.webp"
+                      alt="blogimage"
+                ></p>
+<h3 id="2-shc加密"><a href="#2-shc加密" class="headerlink" title="(2)shc加密"></a>(2)shc加密</h3><p>使用Linux下脚本加密工具SHC对shell脚本进行加密，SHC可以将shell脚本转换为一个可执行的二进制文件。经过shc对shell脚本进行加密后，会同时生成两个新的文件，一个是加密后的可执行的二进制文件(name.sh.x)，另一个是C语言的原文件(name.sh.x.c)。</p>
+<p>使用方法：</p>
+<p>加密:<a class="link"   href="https://www.cnblogs.com/yiruliu/p/14838238.html(%E8%BF%99%E7%AF%87%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%96%B9%E5%BC%8F%E9%83%BD%E5%BE%88%E8%AF%A6%E7%BB%86)" >https://www.cnblogs.com/yiruliu/p/14838238.html(这篇博客中加解密方式都很详细) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>解密:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://www.xiaohuai.com/down/unshc.sh</span><br><span class="line">chmod +x unshc.sh</span><br><span class="line">./unshc.sh script.sh.x -o script_decrypted.sh</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.8ad1tivtde.webp"
+                      alt="blogimage"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.9nzkxk708e.webp"
+                      alt="blogimage"
+                ></p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   href="https://www.cnblogs.com/yiruliu/p/14838238.html" >【转】使用SHC加密bash脚本程序以及解密 - 意如柳 - 博客园 (cnblogs.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://www.qcgzxw.cn/575.html" >破解Linux环境下Shell脚本加密的几种思路 – 小文’s blog (qcgzxw.cn) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link"   href="https://blog.csdn.net/qq_37960324/article/details/83107351" >linux文件加密-gzexe加密_gzexe 二段加密-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <categories>
+        <category>电子取证</category>
+      </categories>
+      <tags>
+        <tag>电子取证</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记第一次服务器取证复现</title>
     <url>/2024/03/08/blog1/</url>
     <content><![CDATA[<p>题目为240123春苗集训营进阶班考核的检材，第一次学习服务器取证，跟着大佬的wp复现的</p>
@@ -701,7 +751,7 @@
 <h3 id="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】"><a href="#10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】" class="headerlink" title="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】"></a>10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">database.php</span><br></pre></td></tr></table></figure></div>
 
 <p>就是第八题的文件</p>
-<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-x62-x63-x40-x31-50-x36-x2e-x63-111-x6d-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-x62-x63-x40-x31-50-x36-x2e-x63-111-x6d-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#x61;&#x62;&#x63;&#x40;&#x31;&#50;&#x36;&#x2e;&#x63;&#111;&#x6d;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#x61;&#x62;&#x63;&#x40;&#x31;&#50;&#x36;&#x2e;&#x63;&#111;&#x6d;" >&#x61;&#x62;&#x63;&#x40;&#x31;&#50;&#x36;&#x2e;&#x63;&#111;&#x6d; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
+<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-98-99-64-49-50-x36-46-99-111-x6d-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-98-99-64-49-50-x36-46-99-111-x6d-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#97;&#98;&#99;&#64;&#49;&#50;&#x36;&#46;&#99;&#111;&#x6d;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#97;&#98;&#99;&#64;&#49;&#50;&#x36;&#46;&#99;&#111;&#x6d;" >&#97;&#98;&#99;&#64;&#49;&#50;&#x36;&#46;&#99;&#111;&#x6d; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
 
 <p>在宝塔中找到数据库密码，用Navicat连接</p>
 <p><img  
@@ -850,74 +900,6 @@
       </tags>
   </entry>
   <entry>
-    <title>服务器取证中两种Shell脚本加密方式</title>
-    <url>/2024/04/18/blog2/</url>
-    <content><![CDATA[<h3 id="1-gzexe加密"><a href="#1-gzexe加密" class="headerlink" title="(1)gzexe加密"></a>(1)gzexe加密</h3><p>gzexe命令用于压缩可执行文件，并且可以自动解压并执行这些文件，在其压缩的过程中会改变部分文件内容的显示。</p>
-<p>使用方法：</p>
-<p>加密:<code>gzexe file</code></p>
-<p>解密:<code>gzexe -d file</code></p>
-<p>在本题中time.sh文件打开后看不懂一点，直接搜代码内容得到相关内容<a class="link"   href="https://www.qcgzxw.cn/575.html%EF%BC%8C%E5%88%86%E6%9E%90%E5%BE%97%E5%BA%94%E8%AF%A5%E6%98%AFgzexe%E5%8A%A0%E5%AF%86%EF%BC%8C%E7%9B%B4%E6%8E%A5%60gzexe" >https://www.qcgzxw.cn/575.html，分析得应该是gzexe加密，直接`gzexe <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> -d time.sh&#96;解密得到shell脚本</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.1hs0725ani.webp"
-                      alt="blogimage"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.54xjul17pc.webp"
-                      alt="blogimage"
-                ></p>
-<h3 id="2-shc加密"><a href="#2-shc加密" class="headerlink" title="(2)shc加密"></a>(2)shc加密</h3><p>使用Linux下脚本加密工具SHC对shell脚本进行加密，SHC可以将shell脚本转换为一个可执行的二进制文件。经过shc对shell脚本进行加密后，会同时生成两个新的文件，一个是加密后的可执行的二进制文件(name.sh.x)，另一个是C语言的原文件(name.sh.x.c)。</p>
-<p>使用方法：</p>
-<p>加密:<a class="link"   href="https://www.cnblogs.com/yiruliu/p/14838238.html(%E8%BF%99%E7%AF%87%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%96%B9%E5%BC%8F%E9%83%BD%E5%BE%88%E8%AF%A6%E7%BB%86)" >https://www.cnblogs.com/yiruliu/p/14838238.html(这篇博客中加解密方式都很详细) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>解密:</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://www.xiaohuai.com/down/unshc.sh</span><br><span class="line">chmod +x unshc.sh</span><br><span class="line">./unshc.sh script.sh.x -o script_decrypted.sh</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.8ad1tivtde.webp"
-                      alt="blogimage"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog2/blogimage.9nzkxk708e.webp"
-                      alt="blogimage"
-                ></p>
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   href="https://www.cnblogs.com/yiruliu/p/14838238.html" >【转】使用SHC加密bash脚本程序以及解密 - 意如柳 - 博客园 (cnblogs.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link"   href="https://www.qcgzxw.cn/575.html" >破解Linux环境下Shell脚本加密的几种思路 – 小文’s blog (qcgzxw.cn) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p><a class="link"   href="https://blog.csdn.net/qq_37960324/article/details/83107351" >linux文件加密-gzexe加密_gzexe 二段加密-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <categories>
-        <category>电子取证</category>
-      </categories>
-      <tags>
-        <tag>电子取证</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《君の名は》二刷</title>
-    <url>/2024/07/23/film-YourName/</url>
-    <content><![CDATA[<p>也是来电影院看《你的名字》重映了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/film-YourName/blog0af094dcd9bf92eb328ff964689766d.7ax2algpj5.webp"
-                      alt="blog0af094dcd9bf92eb328ff964689766d"
-                ></p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>服务器取证登录宝塔面板显示IP未被授权</title>
     <url>/2024/04/18/blog3/</url>
     <content><![CDATA[<p>在服务器取证中，访问宝塔面板地址时经常出现如下没有权限的问题</p>
@@ -960,41 +942,6 @@
       <tags>
         <tag>电子取证</tag>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>first time working overtime</title>
-    <url>/2024/07/27/first-internship-workovertime/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="8dc3a1ee2e5b8b0fcfe6425a629afff1b5170cede30cfccb8401cf06c3702d61">8d18f6c2a5c04d5ef749ddccc8c9f2fdf84d1dea8a3609d439c2f6a69d436a970244b110fb94ff409cecb379162c72b1fb17be7c7d54c42a397adcb1b5c6c7358a703d7e20597d3fe156642e9cd46aa60e5364f3ee4b6390491ffb20db7229e24ecce830462d5095bd73e03df903ddb463f352a28c1fa72fa22f1213e6154dd0a3e3636f42d3e56b66b6bcddc37784e0ba2cd6c2faaed45cc308924593fc48cf2d486d17cf37f7002904f0ff7c4d55f1a194ef4693171542f152d4ed11523cd7641c88b560cd464abebf698e86097547c9b71c9dc9aa97e54e891866b6f20bdf44eab8afa9f1c83853d0be46f4640c5a5f330123d9267dafbd8e2f4ba3a25e4a37bce48a29341a0f89aba7a2e7f6ae05</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-swup-reload-script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>好多东西要学啊</title>
-    <url>/2024/08/01/summer-vacation-complaints/</url>
-    <content><![CDATA[<p>🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
@@ -1045,6 +992,59 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《君の名は》二刷</title>
+    <url>/2024/07/23/film-YourName/</url>
+    <content><![CDATA[<p>也是来电影院看《你的名字》重映了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/film-YourName/blog0af094dcd9bf92eb328ff964689766d.7ax2algpj5.webp"
+                      alt="blog0af094dcd9bf92eb328ff964689766d"
+                ></p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>first time working overtime</title>
+    <url>/2024/07/27/first-internship-workovertime/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="8dc3a1ee2e5b8b0fcfe6425a629afff1b5170cede30cfccb8401cf06c3702d61">8d18f6c2a5c04d5ef749ddccc8c9f2fdf84d1dea8a3609d439c2f6a69d436a970244b110fb94ff409cecb379162c72b1fb17be7c7d54c42a397adcb1b5c6c7358a703d7e20597d3fe156642e9cd46aa60e5364f3ee4b6390491ffb20db7229e24ecce830462d5095bd73e03df903ddb463f352a28c1fa72fa22f1213e6154dd0a3e3636f42d3e56b66b6bcddc37784e0ba2cd6c2faaed45cc308924593fc48cf2d486d17cf37f7002904f0ff7c4d55f1a194ef4693171542f152d4ed11523cd7641c88b560cd464abebf698e86097547c9b71c9dc9aa97e54e891866b6f20bdf44eab8afa9f1c83853d0be46f4640c5a5f330123d9267dafbd8e2f4ba3a25e4a37bce48a29341a0f89aba7a2e7f6ae05</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-swup-reload-script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>好多东西要学啊</title>
+    <url>/2024/08/01/summer-vacation-complaints/</url>
+    <content><![CDATA[<p>🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
       </tags>
   </entry>
 </search>
