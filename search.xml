@@ -282,14 +282,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Welcome</title>
-    <url>/2024/03/08/First/</url>
-    <content><![CDATA[<p>这里是我的blog</p>
-<p>本站建于2024&#x2F;1&#x2F;17，虽然是写了，但别真的看🥵</p>
-<p>评论区由于vercel被墙，需要科学上网（以后再去搞服务器域名）🥲</p>
-]]></content>
-  </entry>
-  <entry>
     <title>2024FIC线下决赛复现（前两部分）</title>
     <url>/2024/07/29/2024fic-forensics-fuxian/</url>
     <content><![CDATA[<p><strong>案件背景</strong>: </p>
@@ -593,49 +585,12 @@
       </tags>
   </entry>
   <entry>
-    <title>服务器取证登录宝塔面板显示IP未被授权</title>
-    <url>/2024/04/18/blog3/</url>
-    <content><![CDATA[<p>在服务器取证中，访问宝塔面板地址时经常出现如下没有权限的问题</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.6ik2ymhc74.webp"
-                      alt="blogimage"
-                ></p>
-<p>通常执行<code>bt 12 &amp; bt 13</code>命令后可以正常访问，</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.1zi1vnc2mc.webp"
-                      alt="blogimage"
-                ></p>
-<p>但在本题中，仍然没有访问权限，在宝塔面板命令行尝试执行其他命令，发现执行(23) 关闭BasicAuth认证时报错</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.5tqtelu5ds.webp"
-                      alt="blogimage"
-                ></p>
-<p>搜索Operation not permitted字段，在linux下，有些配置文件是不允许任何人包括root修改的，为了防止被误删除或修改，可以设定该文件的”不可修改位(immutable)”，即文件属性为i。从上面可以看出当前文件有个i属性，有i属性的文件是不能修改的，更不可被删除，即使是root用户也不可。既然知道了文件不能操作的原因是加了i属性，所以相应的解决方案就是把文件的i属性去除，然后对此文件内容进行修改，最好在操作完成后恢复文件的i属性。(<a class="link"   href="https://blog.csdn.net/huaishitou/article/details/118102793" >https://blog.csdn.net/huaishitou/article/details/118102793<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>)</p>
-<p>去除i属性命令：其中对于文件名，既可以是相对路径，也可以是绝对路径</p>
-<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line">chattr -i file</span><br></pre></td></tr></table></figure></div>
-
-<p>去除i属性后，再关闭BasicAuth认证成功，之后就可以正常访问了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.1hs072azdu.webp"
-                      alt="blogimage"
-                ></p>
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   href="https://blog.csdn.net/huaishitou/article/details/118102793" >【运维】Linux如何解决root用户Operation not permitted_linux operation not permitted-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+    <title>Welcome</title>
+    <url>/2024/03/08/First/</url>
+    <content><![CDATA[<p>这里是我的blog</p>
+<p>本站建于2024&#x2F;1&#x2F;17，虽然是写了，但别真的看🥵</p>
+<p>评论区由于vercel被墙，需要科学上网（以后再去搞服务器域名）🥲</p>
 ]]></content>
-      <categories>
-        <category>取证</category>
-      </categories>
-      <tags>
-        <tag>取证</tag>
-        <tag>笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>记第一次服务器取证复现</title>
@@ -746,7 +701,7 @@
 <h3 id="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】"><a href="#10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】" class="headerlink" title="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】"></a>10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">database.php</span><br></pre></td></tr></table></figure></div>
 
 <p>就是第八题的文件</p>
-<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-98-x63-x40-49-50-x36-x2e-x63-111-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-x61-98-x63-x40-49-50-x36-x2e-x63-111-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#x61;&#98;&#x63;&#x40;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#x61;&#98;&#x63;&#x40;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109;" >&#x61;&#98;&#x63;&#x40;&#49;&#50;&#x36;&#x2e;&#x63;&#111;&#109;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
+<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-x62-99-64-49-x32-54-x2e-x63-x6f-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-x62-99-64-49-x32-54-x2e-x63-x6f-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;" >&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
 
 <p>在宝塔中找到数据库密码，用Navicat连接</p>
 <p><img  
@@ -895,24 +850,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《君の名は》二刷</title>
-    <url>/2024/07/23/film-YourName/</url>
-    <content><![CDATA[<p>也是来电影院看《你的名字》重映了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/film-YourName/blog0af094dcd9bf92eb328ff964689766d.7ax2algpj5.webp"
-                      alt="blog0af094dcd9bf92eb328ff964689766d"
-                ></p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>服务器取证中两种Shell脚本加密方式</title>
     <url>/2024/04/18/blog2/</url>
     <content><![CDATA[<h3 id="1-gzexe加密"><a href="#1-gzexe加密" class="headerlink" title="(1)gzexe加密"></a>(1)gzexe加密</h3><p>gzexe命令用于压缩可执行文件，并且可以自动解压并执行这些文件，在其压缩的过程中会改变部分文件内容的显示。</p>
@@ -960,6 +897,69 @@
       <tags>
         <tag>取证</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器取证登录宝塔面板显示IP未被授权</title>
+    <url>/2024/04/18/blog3/</url>
+    <content><![CDATA[<p>在服务器取证中，访问宝塔面板地址时经常出现如下没有权限的问题</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.6ik2ymhc74.webp"
+                      alt="blogimage"
+                ></p>
+<p>通常执行<code>bt 12 &amp; bt 13</code>命令后可以正常访问，</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.1zi1vnc2mc.webp"
+                      alt="blogimage"
+                ></p>
+<p>但在本题中，仍然没有访问权限，在宝塔面板命令行尝试执行其他命令，发现执行(23) 关闭BasicAuth认证时报错</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.5tqtelu5ds.webp"
+                      alt="blogimage"
+                ></p>
+<p>搜索Operation not permitted字段，在linux下，有些配置文件是不允许任何人包括root修改的，为了防止被误删除或修改，可以设定该文件的”不可修改位(immutable)”，即文件属性为i。从上面可以看出当前文件有个i属性，有i属性的文件是不能修改的，更不可被删除，即使是root用户也不可。既然知道了文件不能操作的原因是加了i属性，所以相应的解决方案就是把文件的i属性去除，然后对此文件内容进行修改，最好在操作完成后恢复文件的i属性。(<a class="link"   href="https://blog.csdn.net/huaishitou/article/details/118102793" >https://blog.csdn.net/huaishitou/article/details/118102793<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>)</p>
+<p>去除i属性命令：其中对于文件名，既可以是相对路径，也可以是绝对路径</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line">chattr -i file</span><br></pre></td></tr></table></figure></div>
+
+<p>去除i属性后，再关闭BasicAuth认证成功，之后就可以正常访问了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/Blog3/blogimage.1hs072azdu.webp"
+                      alt="blogimage"
+                ></p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p><a class="link"   href="https://blog.csdn.net/huaishitou/article/details/118102793" >【运维】Linux如何解决root用户Operation not permitted_linux operation not permitted-CSDN博客<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+]]></content>
+      <categories>
+        <category>取证</category>
+      </categories>
+      <tags>
+        <tag>取证</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《君の名は》二刷</title>
+    <url>/2024/07/23/film-YourName/</url>
+    <content><![CDATA[<p>也是来电影院看《你的名字》重映了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/we1kin/picx-images-hosting@master/film-YourName/blog0af094dcd9bf92eb328ff964689766d.7ax2algpj5.webp"
+                      alt="blog0af094dcd9bf92eb328ff964689766d"
+                ></p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
