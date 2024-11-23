@@ -701,7 +701,7 @@
 <h3 id="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】"><a href="#10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc-php】" class="headerlink" title="10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】"></a>10、对检材1分析，涉案网站站点数据库连接配置文件名是什么？【答案格式：abc.php】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">database.php</span><br></pre></td></tr></table></figure></div>
 
 <p>就是第八题的文件</p>
-<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-x62-99-64-49-x32-54-x2e-x63-x6f-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-x62-99-64-49-x32-54-x2e-x63-x6f-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;" >&#97;&#x62;&#99;&#64;&#49;&#x32;&#54;&#x2e;&#x63;&#x6f;&#109;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
+<h3 id="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-98-99-x40-x31-50-54-x2e-99-111-109-】"><a href="#11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：-97-98-99-x40-x31-50-54-x2e-99-111-109-】" class="headerlink" title="11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：&#97;&#98;&#99;&#x40;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109;】"></a>11、对检材1分析，客服账号kf01的邮箱地址是多少？【答案格式：<a class="link"   href="mailto:&#97;&#98;&#99;&#x40;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109;" >&#97;&#98;&#99;&#x40;&#x31;&#50;&#54;&#x2e;&#99;&#111;&#109;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>】</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">305678@qq.com</span><br></pre></td></tr></table></figure></div>
 
 <p>在宝塔中找到数据库密码，用Navicat连接</p>
 <p><img  
@@ -992,6 +992,18 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
+    <title>好多东西要学啊</title>
+    <url>/2024/08/01/summer-vacation-complaints/</url>
+    <content><![CDATA[<p>🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ssh工具连接超及失败时问题汇总</title>
     <url>/2024/08/17/ssh-connect-issues/</url>
     <content><![CDATA[<blockquote>
@@ -1040,18 +1052,6 @@ import {initHBE} from "/js/plugins/hbe.js";
       <tags>
         <tag>笔记</tag>
         <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>好多东西要学啊</title>
-    <url>/2024/08/01/summer-vacation-complaints/</url>
-    <content><![CDATA[<p>🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵🥵</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>日常</tag>
       </tags>
   </entry>
 </search>
